@@ -21,7 +21,7 @@ var svg = d3.select("#scatter")
   .attr("height", svgHeight);
 
 // Set initial parameters of x and y aixs
-var selectedX = "smokes";
+var selectedX = "poverty";
 var selectedY = "healthcare";
 
 // Update the labels with state abbreviations
