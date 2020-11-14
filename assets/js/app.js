@@ -20,15 +20,9 @@ var svg = d3.select("#scatter")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
 
-// Append a group area, then set its margins
-var chartGroup = svg.append("g")
-  .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
 // Set initial parameters of x and y aixs
 var selectedX = "poverty";
 var selectedY = "healthcare";
-
-
 
 // Update the labels with state abbreviations
 function renderText(textGroup, newXScale, selectedX, newYScale, selectedY) {
@@ -38,7 +32,6 @@ function renderText(textGroup, newXScale, selectedX, newYScale, selectedY) {
     .attr("y", d => newYScale(d[selectedY]))
   return textGroup;
 }
-
 // Load data from data.csv
 d3.csv("./assets/data/data.csv").then(function(censusData) {
 
@@ -54,18 +47,9 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
     var xLinearScale = xScale(censusData, selectedX);
     var yLinearScale = yScale(censusData, selectedY);
 
-    // Create create the chart's axes
+    // Create the chart's axes
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
-
-    var xAxis = chartGroup.append("g")
-        .classed("x-axis", true)
-        .attr("transform", `translate(0, ${chartHeight})`)
-        .call(bottomAxis);
-
-    var yAxis = chartGroup.append("g")
-        .classed("y-axis", true)
-        .call(leftAxis);
     
     // Append circles to data points
     var circlesGroup = chartGroup.selectAll("circle")
