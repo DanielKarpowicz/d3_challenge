@@ -1,0 +1,4 @@
+1. host html/css final results analysis 
+2. play distribution for each team as an interactive component
+2. apply different machine learning to raw data set
+3. return to main data set and attempt to quantify impact of 
